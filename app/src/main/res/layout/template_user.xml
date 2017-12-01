@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="user"
+            type="unicauca.movil.organizadores.models.UserRequest"
+            />
+        <variable
+            name="handler"
+            type="unicauca.movil.organizadores.adapters.UserAdapterPro"/>
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->handler.onClickAlarm(view)}"
+        >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small"
+            app:cardElevation="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/template_img"
+                    android:background="#333"
+                    android:scaleType="centerCrop"
+
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/template_img"
+                    android:src="@drawable/mask" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:padding="@dimen/small"
+                    android:layout_alignBottom="@id/img"
+                    tools:text="Nombre Vaca"
+                    />
+
+                <ImageView
+                    android:id="@+id/icon_call"
+                    android:layout_width="@dimen/icon"
+                    android:layout_height="@dimen/icon"
+                    android:layout_below="@id/img"
+                    android:layout_margin="@dimen/small" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/icon_call"
+                    android:layout_alignBottom="@id/icon_call"
+                    tools:text="17/03/2017"
+                    />
+
+                <ImageView
+                    android:id="@+id/icon_place"
+                    android:layout_width="@dimen/icon"
+                    android:layout_height="@dimen/icon"
+                    android:layout_below="@id/icon_call"
+                    android:layout_marginLeft="@dimen/small"
+                    android:layout_marginRight="@dimen/small"
+                    android:layout_marginBottom="@dimen/small" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/icon_place"
+                    android:layout_alignBottom="@id/icon_place"
+                    tools:text="9:10"
+                    />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+
+    </layout>

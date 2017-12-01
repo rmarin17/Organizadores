@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Organizadores</string>
+    <string name="url_base">192.168.43.232</string>
+    <string name="http_error_404">REcurso no encontrado</string>
+    <string name="http_error_server">Error en servidor</string>
+    <string name="http_error_internet">Sin conexion a internet</string>
+    <string name="http_error_timeout">El servidor no responde</string>
+    <string name="correcto">Registrado Correctamente</string>
+    <string name="btn_control">Control</string>
+    <string name="btn_registros">Registros</string>
+    <string name="control">Control de Registros</string>
+    <string name="asis">Asistencia</string>
+    <string name="ref1">Refrigerio 1</string>
+    <string name="ref2">Refrigerio 2</string>
+    <string name="ref3">Refrigerio 3</string>
+    <string name="ref4">Refrigerio 4</string>
+    <string name="ref5">Refrigerio 5</string>
+    <string name="ref6">Refrigerio 6</string>
+    <string name="ref7">Refrigerio 7</string>
+    <string name="almu">Almuerzo</string>
+    <string name="app_write">NFC Tags</string>
+    <string name="nfc_nombre">Nombre</string>
+    <string name="write_phone">Telefono</string>
+    <string name="btn_write">Escribir</string>
+    <string name="btn_wrtie">NFC Tags</string>
+    <string name="write_mail">Email</string>
+</resources>

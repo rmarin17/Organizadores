@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="handler"
+            type="unicauca.movil.organizadores.ControlRef"
+            />
+
+    </data>
+
+
+<TableLayout
+    android:id="@+id/activity_principal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context="unicauca.movil.organizadores.ControlRef">
+
+    <FrameLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/imgcontrol"
+            android:src="@drawable/mice"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/mask" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/control"
+            android:textColor="#fff"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/small" />
+
+    </FrameLayout>
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:text="@string/asis"
+        android:layout_margin="@dimen/small"
+        android:onClick="@{()-> handler.goAsis()}"/>
+
+    <TableRow
+        android:layout_margin="@dimen/small">
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/ref1"
+            android:onClick="@{()-> handler.goRef1()}"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="@string/ref2"
+            android:onClick="@{()-> handler.goRef2()}"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_margin="@dimen/small">
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/ref3"
+            android:onClick="@{()-> handler.goRef3()}"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="@string/ref4"
+            android:onClick="@{()-> handler.goRef4()}"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_margin="@dimen/small">
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/ref5"
+            android:onClick="@{()-> handler.goRef5()}"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="@string/almu"
+            android:onClick="@{()-> handler.goAlmu()}"
+            />
+
+    </TableRow>
+
+
+
+</TableLayout>
+
+</layout>

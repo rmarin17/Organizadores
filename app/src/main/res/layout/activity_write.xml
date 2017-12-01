@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="unicauca.movil.organizadores.Write"
+    >
+
+    <data>
+        <variable
+            name="handler"
+            type="unicauca.movil.organizadores.Write"
+            />
+
+
+    </data>
+
+    <TableLayout
+        android:id="@+id/activity_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*">
+
+        <FrameLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/img"
+                android:src="@drawable/nfc"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_write"
+                android:layout_gravity="bottom"
+                android:padding="@dimen/small" />
+
+        </FrameLayout>
+
+    <TableLayout
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <TableRow
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/supersmall"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            >
+            <ImageView
+                android:layout_width="@dimen/icon"
+                android:layout_height="@dimen/icon"
+                android:src="@drawable/ic_name"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                >
+                <EditText
+                    android:id="@+id/nombre"
+                    android:layout_marginTop="@dimen/small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nfc_nombre"
+                    android:textColorHint="@color/textBody"
+                    android:textColor="@color/textBody"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/supersmall"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/icon"
+                android:layout_height="@dimen/icon"
+                android:src="@drawable/ic_phone"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/telefono"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                >
+
+                <EditText
+                    android:id="@+id/tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/write_phone"
+                    android:textColorHint="@color/textBody"
+                    android:textColor="@color/textBody"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+        </TableRow>
+
+
+        <TableRow
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/supersmall"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/icon"
+                android:layout_height="@dimen/icon"
+                android:src="@drawable/ic_mail"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/email"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                >
+
+                <EditText
+                    android:id="@+id/mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/write_mail"
+                    android:textColorHint="@color/textBody"
+                    android:textColor="@color/textBody"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+        </TableRow>
+
+        </TableLayout>
+
+
+        <TableRow>
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:text="@string/btn_write"
+                android:onClick="@{()-> handler.write()}"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</layout>

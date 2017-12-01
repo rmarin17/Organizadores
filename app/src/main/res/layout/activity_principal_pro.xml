@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="handler"
+            type="unicauca.movil.organizadores.PrincipalPro"
+            />
+    </data>
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context="unicauca.movil.organizadores.PrincipalPro">
+
+    <FrameLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/prin"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/mask" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#fff"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/small" />
+
+    </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="0dp"
+            android:padding="@dimen/small"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="@dimen/btn"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="@string/btn_wrtie"
+                android:padding="@dimen/small"
+                android:onClick="@{()-> handler.goToWrite()}"
+                />
+
+
+            <Button
+                android:layout_width="@dimen/btn"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="@string/btn_control"
+                android:padding="@dimen/small"
+                />
+
+
+
+            <Button
+                android:layout_width="@dimen/btn"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="@string/btn_registros"
+                android:padding="@dimen/small"
+                android:onClick="@{()-> handler.goToMain()}"
+                />
+
+        </LinearLayout>
+
+
+</TableLayout>
+
+</layout>
