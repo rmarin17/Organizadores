@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
 
     dataBinding {
         enabled = true
@@ -10,11 +10,12 @@ android {
 
     defaultConfig {
         applicationId "unicauca.movil.organizadores"
-        minSdkVersion 16
-        targetSdkVersion 24
+        minSdkVersion 17
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {

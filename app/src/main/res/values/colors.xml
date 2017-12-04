@@ -6,5 +6,6 @@
 
     <color name="imgBg">#333333</color>
     <color name="textBody">#555</color>
+    <color name="icon_color">#666</color>
 
 </resources>

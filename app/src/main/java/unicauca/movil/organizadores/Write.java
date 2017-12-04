@@ -71,15 +71,19 @@ public class Write extends AppCompatActivity {
 
         enableTagWriteMode();
 
-        new AlertDialog.Builder(Write.this).setTitle("Touch tag to write")
+        AlertDialog alert = new AlertDialog.Builder(Write.this)
+                .setTitle(R.string.alert_title_nfc)
+                .setIcon(R.drawable.nfc)
+                .setMessage(R.string.alert_msg_nfc)
                 .setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
                     public void onCancel(DialogInterface dialog) {
                         disableTagWriteMode();
                     }
 
-                }).create().show();
+                }).create();
 
+        alert.show();
     }
 
 

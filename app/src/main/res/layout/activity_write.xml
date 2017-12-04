@@ -52,7 +52,7 @@
             <ImageView
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon"
-                android:src="@drawable/ic_name"
+                app:srcCompat="@drawable/ic_name"
                 />
             <LinearLayout
                 android:orientation="vertical"
@@ -85,7 +85,7 @@
             <ImageView
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon"
-                android:src="@drawable/ic_phone"
+                app:srcCompat="@drawable/ic_phone"
                 />
 
 
@@ -119,7 +119,7 @@
             <ImageView
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon"
-                android:src="@drawable/ic_mail"
+                app:srcCompat="@drawable/ic_mail"
                 />
 
 

@@ -24,4 +24,12 @@
     <string name="btn_write">Escribir</string>
     <string name="btn_wrtie">NFC Tags</string>
     <string name="write_mail">Email</string>
+    <string name="img_person">imagen de asistentes</string>
+    <string name="des">Descripción</string>
+    <string name="btn_text_control">Control</string>
+    <string name="btn_text_nfc">NFC Tags</string>
+    <string name="btn_text_registro">Registros</string>
+    <string name="prin_des">Bienvenidos a la aplicación exclusiva para los organizadores del evento, en esta se podrán encontrar diferentes funcionalidades con el fin de facilitar el manejo del evento por parte de los organizadores, entre algunas se encuentran: conteo de refrigerios con TAG’S NFC, escribir TAG’S NFC para los asistentes al evento, control de asistencia en las diferentes actividades y registros de los datos ingresados.</string>
+    <string name="alert_msg_nfc">Acerca el tag NFC para escribir.</string>
+    <string name="alert_title_nfc">Escribir TAG NFC</string>
 </resources>

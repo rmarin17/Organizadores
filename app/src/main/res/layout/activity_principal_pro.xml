@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
 
@@ -11,75 +12,168 @@
             />
     </data>
 
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:stretchColumns="*"
-    tools:context="unicauca.movil.organizadores.PrincipalPro">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        >
 
-    <FrameLayout>
+    <TableLayout
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
 
-        <ImageView
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/prin"
-            android:scaleType="centerCrop" />
+            android:layout_height="match_parent">
 
-        <ImageView
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/img"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/prin" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Organizadores" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/icon_prin"
+                android:layout_height="@dimen/icon_prin"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:srcCompat="@drawable/ic_des" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/des"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2"
+                tools:text="Descripción" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/prin_des"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:text="@string/prin_des" />
+        </android.support.constraint.ConstraintLayout>
+
+    </TableLayout>
+
+        <TableRow
+            android:background="#ffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/mask" />
-
-        <TextView
-            style="@style/TextAppearance.AppCompat.Display1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="#fff"
-            android:layout_gravity="bottom"
-            android:padding="@dimen/small" />
-
-    </FrameLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_height="0dp"
-            android:padding="@dimen/small"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <Button
-                android:layout_width="@dimen/btn"
+            android:paddingBottom="@dimen/small"
+            >
+            <LinearLayout
+                android:id="@+id/btnPonentes"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:text="@string/btn_wrtie"
-                android:padding="@dimen/small"
-                android:onClick="@{()-> handler.goToWrite()}"
-                />
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="@{()->handler.goToMain()}"
+                android:gravity="center"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="@dimen/carga_icon"
+                    android:layout_height="@dimen/carga_icon"
+                    app:srcCompat="@drawable/ic_control" />
 
-            <Button
-                android:layout_width="@dimen/btn"
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_text_control"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnnfc"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:text="@string/btn_control"
-                android:padding="@dimen/small"
-                />
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="@{()->handler.goToWrite()}"
+                android:gravity="center"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="@dimen/carga_icon"
+                    android:layout_height="@dimen/carga_icon"
+                    app:srcCompat="@drawable/ic_nfc" />
 
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_text_nfc"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
 
-            <Button
-                android:layout_width="@dimen/btn"
+            <LinearLayout
+                android:id="@+id/btnregistros"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:text="@string/btn_registros"
-                android:padding="@dimen/small"
-                android:onClick="@{()-> handler.goToMain()}"
-                />
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="@{()->handler.goToMain()}"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/carga_icon"
+                    android:layout_height="@dimen/carga_icon"
+                    app:srcCompat="@drawable/ic_register" />
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_text_registro"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
 
 
-</TableLayout>
+        </TableRow>
+    </TableLayout>
+
 
 </layout>

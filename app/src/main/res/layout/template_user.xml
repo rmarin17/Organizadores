@@ -16,85 +16,80 @@
     </data>
 
 
-    <FrameLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{(view)->handler.onClickAlarm(view)}"
         >
 
         <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
+            android:id="@+id/card"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small"
-            app:cardElevation="8dp">
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardElevation="@dimen/cardelevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <RelativeLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                >
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/template_img"
-                    android:background="#333"
+                    android:id="@+id/imageView3"
+                    android:layout_width="@dimen/img_ponen"
+                    android:layout_height="@dimen/img_ponen"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:scaleType="centerCrop"
-
-                    />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/template_img"
-                    android:src="@drawable/mask" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@color/cardview_dark_background" />
 
                 <TextView
-                    style="@style/TextAppearance.AppCompat.Title"
-                    android:layout_width="match_parent"
+                    android:id="@+id/nombre"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="#fff"
-                    android:padding="@dimen/small"
-                    android:layout_alignBottom="@id/img"
-                    tools:text="Nombre Vaca"
-                    />
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Nombre y Apellidos" />
 
                 <ImageView
-                    android:id="@+id/icon_call"
-                    android:layout_width="@dimen/icon"
-                    android:layout_height="@dimen/icon"
-                    android:layout_below="@id/img"
-                    android:layout_margin="@dimen/small" />
+                    android:id="@+id/imageView4"
+                    android:layout_width="@dimen/icon_asis"
+                    android:layout_height="@dimen/icon_asis"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/nombre"
+                    app:srcCompat="@drawable/ic_name" />
 
                 <TextView
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tipo"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_call"
-                    android:layout_alignBottom="@id/icon_call"
-                    tools:text="17/03/2017"
-                    />
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    tools:text="Tipo" />
 
-                <ImageView
-                    android:id="@+id/icon_place"
-                    android:layout_width="@dimen/icon"
-                    android:layout_height="@dimen/icon"
-                    android:layout_below="@id/icon_call"
-                    android:layout_marginLeft="@dimen/small"
-                    android:layout_marginRight="@dimen/small"
-                    android:layout_marginBottom="@dimen/small" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/icon_place"
-                    android:layout_alignBottom="@id/icon_place"
-                    tools:text="9:10"
-                    />
-
-            </RelativeLayout>
+            </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
-    </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
 
 
     </layout>
