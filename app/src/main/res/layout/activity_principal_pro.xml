@@ -130,7 +130,7 @@
                 android:layout_gravity="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:onClick="@{()->handler.goToWrite()}"
+                android:onClick="@{()->handler.goToTags()}"
                 android:gravity="center"
                 android:orientation="vertical">
 

@@ -48,8 +48,9 @@
         <activity android:name=".Refrigerio4" />
         <activity android:name=".Refrigerio5" />
         <activity android:name=".Almuerzo" />
-        <activity android:name=".ControlRef"></activity>
-        <activity android:name=".Write"></activity>
+        <activity android:name=".ControlRef" />
+        <activity android:name=".Write" />
+        <activity android:name=".ControlNfc"></activity>
     </application>
 
 </manifest>

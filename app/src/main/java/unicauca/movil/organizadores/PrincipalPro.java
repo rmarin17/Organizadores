@@ -24,8 +24,8 @@ public class PrincipalPro extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToWrite(){
-        Intent intent = new Intent(this, Write.class);
+    public void goToTags(){
+        Intent intent = new Intent(this, ControlNfc.class);
         startActivity(intent);
     }
 }
