@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="handler"
             type="unicauca.movil.organizadores.ControlNfc"
             />
-
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -154,7 +152,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:gravity="center"
-            android:onClick="@{()->handler.goToDelete()}"
+            android:onClick="@{()->handler.delete()}"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.803"

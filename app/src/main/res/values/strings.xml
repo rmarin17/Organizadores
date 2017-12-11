@@ -37,4 +37,8 @@
     <string name="btn_text_write">Escribir</string>
     <string name="btn_text_read">Leer</string>
     <string name="btn_text_delete">Eliminar</string>
+    <string name="write_nfc">Escribir NFC</string>
+    <string name="alert_delete_title">Borrar Etiqueta</string>
+    <string name="alert_delete_msg">Acerca la etiqueta NFC para borrar la información.</string>
+    <string name="cancel">Cancelar</string>
 </resources>

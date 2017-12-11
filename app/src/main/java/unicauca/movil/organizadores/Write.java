@@ -37,9 +37,9 @@ public class Write extends AppCompatActivity {
         binding.setHandler(this);
 
 
-        name =  binding.nombre.getText().toString();
-        tel =  binding.tel.getText().toString();
-        email =  binding.mail.getText().toString();
+        name =  binding.nombre.getEditText().getText().toString();
+        tel =  binding.telefono.getEditText().getText().toString();
+        email =  binding.correo.getEditText().getText().toString();
 
        /* ((Button) findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
 
@@ -106,11 +106,15 @@ public class Write extends AppCompatActivity {
 
         if (mWriteMode && NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            NdefRecord record = NdefRecord.createUri( "Nombre: "+binding.nombre.getText().toString()+", Telefono: "+binding.tel.getText().toString() +", Email: "+ binding.mail.getText().toString());
+            NdefRecord record = NdefRecord.createUri( "Nombre: "+binding.nombre.getEditText().getText().toString()
+                    +", Telefono: "+binding.telefono.getEditText().getText().toString()
+                    +", Email: "+ binding.correo.getEditText().getText().toString());
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
                 Toast.makeText(this, "Success: Wrote placeid to nfc tag", Toast.LENGTH_LONG)
                         .show();
+
+
             }
         }
     }

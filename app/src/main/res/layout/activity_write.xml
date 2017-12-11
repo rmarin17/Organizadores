@@ -15,147 +15,161 @@
 
     </data>
 
-    <TableLayout
-        android:id="@+id/activity_login"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="*">
+        android:layout_height="match_parent">
 
-        <FrameLayout>
 
-            <ImageView
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+           <android.support.constraint.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <ImageView
+                   android:id="@+id/imageView8"
+                   android:layout_width="@dimen/icon_write"
+                   android:layout_height="@dimen/icon_write"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginTop="24dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:srcCompat="@drawable/ic_name" />
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/nombre"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginEnd="8dp"
+                   android:layout_marginStart="8dp"
+                   android:layout_marginTop="16dp"
+                   app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toEndOf="@+id/imageView8"
+                   app:layout_constraintTop_toTopOf="parent">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Nombre"
+                       android:inputType="text" />
+               </android.support.design.widget.TextInputLayout>
+
+               <ImageView
+                   android:id="@+id/imageView9"
+                   android:layout_width="@dimen/icon_write"
+                   android:layout_height="@dimen/icon_write"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginTop="32dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/imageView8"
+                   app:srcCompat="@drawable/ic_phone" />
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/telefono"
+                   android:layout_width="0dp"
+                   android:layout_height="57dp"
+                   android:layout_marginEnd="8dp"
+                   android:layout_marginStart="8dp"
+                   android:layout_marginTop="8dp"
+                   app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toEndOf="@+id/imageView9"
+                   app:layout_constraintTop_toBottomOf="@+id/nombre">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Telefono"
+                       android:inputType="number" />
+               </android.support.design.widget.TextInputLayout>
+
+               <ImageView
+                   android:id="@+id/imageView10"
+                   android:layout_width="@dimen/icon_write"
+                   android:layout_height="@dimen/icon_write"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginTop="32dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/imageView9"
+                   app:srcCompat="@drawable/ic_mail" />
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/correo"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginBottom="8dp"
+                   android:layout_marginEnd="8dp"
+                   android:layout_marginStart="8dp"
+                   android:layout_marginTop="8dp"
+                   app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toEndOf="@+id/imageView10"
+                   app:layout_constraintTop_toBottomOf="@+id/telefono">
+
+                   <android.support.design.widget.TextInputEditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Correo electronico"
+                       android:inputType="textEmailAddress" />
+               </android.support.design.widget.TextInputLayout>
+
+               <Button
+                   android:id="@+id/button"
+                   style="@style/Widget.AppCompat.Button"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginEnd="8dp"
+                   android:layout_marginStart="8dp"
+                   android:layout_marginTop="24dp"
+                   android:text="@string/btn_text_write"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/correo"
+                   android:onClick="@{()->handler.write()}"
+                   tools:text="Escribir" />
+           </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/img"
-                android:src="@drawable/nfc"
-                android:scaleType="fitCenter"/>
+                android:layout_height="300dp"
+                app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed"
+                app:title="@string/write_nfc"
+                app:contentScrim="@color/colorPrimary">
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_write"
-                android:layout_gravity="bottom"
-                android:padding="@dimen/small" />
-
-        </FrameLayout>
-
-    <TableLayout
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        >
-
-        <TableRow
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/supersmall"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            >
-            <ImageView
-                android:layout_width="@dimen/icon"
-                android:layout_height="@dimen/icon"
-                app:srcCompat="@drawable/ic_name"
-                />
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                >
-                <EditText
-                    android:id="@+id/nombre"
-                    android:layout_marginTop="@dimen/small"
+                <ImageView
+                    android:id="@+id/img"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/nfc_nombre"
-                    android:textColorHint="@color/textBody"
-                    android:textColor="@color/textBody"
-                    android:gravity="center"
-                    android:clickable="true"
-                    android:imeOptions="actionDone"
-                    android:singleLine="true"
-                    />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:srcCompat="@drawable/writenfc" />
 
-        </TableRow>
-
-        <TableRow
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/supersmall"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/icon"
-                android:layout_height="@dimen/icon"
-                app:srcCompat="@drawable/ic_phone"
-                />
-
-
-            <LinearLayout
-                android:id="@+id/telefono"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                >
-
-                <EditText
-                    android:id="@+id/tel"
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/write_phone"
-                    android:textColorHint="@color/textBody"
-                    android:textColor="@color/textBody"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    />
-            </LinearLayout>
-        </TableRow>
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"/>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
 
 
-        <TableRow
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/supersmall"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/icon"
-                android:layout_height="@dimen/icon"
-                app:srcCompat="@drawable/ic_mail"
-                />
+        </android.support.design.widget.AppBarLayout>
 
 
-            <LinearLayout
-                android:id="@+id/email"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                >
-
-                <EditText
-                    android:id="@+id/mail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/write_mail"
-                    android:textColorHint="@color/textBody"
-                    android:textColor="@color/textBody"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    />
-            </LinearLayout>
-        </TableRow>
-
-        </TableLayout>
-
-
-        <TableRow>
-
-            <Button
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:text="@string/btn_write"
-                android:onClick="@{()-> handler.write()}"/>
-
-        </TableRow>
-
-    </TableLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
 
 </layout>
