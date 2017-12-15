@@ -50,7 +50,8 @@
         <activity android:name=".Almuerzo" />
         <activity android:name=".ControlRef" />
         <activity android:name=".Write" />
-        <activity android:name=".ControlNfc"></activity>
+        <activity android:name=".ControlNfc" />
+        <activity android:name=".Read"></activity>
     </application>
 
 </manifest>
