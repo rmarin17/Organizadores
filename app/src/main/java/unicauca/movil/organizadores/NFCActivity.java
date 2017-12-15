@@ -69,9 +69,9 @@ public abstract class NFCActivity extends AppCompatActivity {
             String payload = new String(messages[0].getRecords()[0].getPayload());
 
             String data[] = payload.split("\n");
-            String nombre = data[2].split(":")[1];
-            String tel = data[3].split(":")[1];
-            String email = data[4].split(":")[1];
+            String nombre = data[1].split(":")[1];
+            String tel = data[2].split(":")[1];
+            String email = data[3].split(":")[1];
             long idL = getDec(id);
 
             UserRequest request =  new UserRequest();

@@ -106,9 +106,10 @@ public class Write extends AppCompatActivity {
 
         if (mWriteMode && NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            NdefRecord record = NdefRecord.createUri( "Nombre: "+binding.nombre.getEditText().getText().toString()
-                    +", Telefono: "+binding.telefono.getEditText().getText().toString()
-                    +", Email: "+ binding.correo.getEditText().getText().toString());
+
+            NdefRecord record = NdefRecord.createUri( "Contacto\nNombre:"+binding.nombre.getEditText().getText().toString()
+                    +"\nTEL:"+binding.telefono.getEditText().getText().toString()
+                    +"\nEMAIL:"+ binding.correo.getEditText().getText().toString());
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
                 Toast.makeText(this, "Success: Wrote placeid to nfc tag", Toast.LENGTH_LONG)
