@@ -9,16 +9,9 @@ public class UserRequest {
     public static final int TYPE_REF = 1;
 
     String nombre, tel, email;
-    long id, idl;
+    long idl;
     int type;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public static int getTypeAsist() {
         return TYPE_ASIST;

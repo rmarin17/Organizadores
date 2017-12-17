@@ -16,11 +16,11 @@ import unicauca.movil.organizadores.models.UserRequest;
 
 public class UserDao {
 
-    static final String TABLE = "alarma";
+    static final String TABLE = "registro";
     static final String C_NAME = "nombre";
     static final String C_PHONE = "tel";
     static final String C_EMAIL = "email";
-    static final String C_IDL = "idl";
+    static final String C_IDL = "_id";
     static final String C_TYPE = "type";
     SQLiteDatabase db;
 
@@ -31,14 +31,12 @@ public class UserDao {
 
     public void insert (UserRequest user){
         ContentValues cV = new ContentValues();
+        cV.put(C_IDL, user.getIdl());
         cV.put(C_NAME, user.getNombre());
         cV.put(C_PHONE, user.getTel());
         cV.put(C_EMAIL, user.getEmail());
-        cV.put(C_IDL, user.getIdl());
         cV.put(C_TYPE, user.getType());
-        long id = db.insert(TABLE,null,cV);
-        user.setId(id);
-
+        db.insert(TABLE,null,cV);
     }
 
     public void update (UserRequest user){
@@ -51,7 +49,7 @@ public class UserDao {
         cV.put(C_IDL, user.getIdl());
         cV.put(C_TYPE, user.getType());
 
-        long id = db.update(TABLE,cV,"_id = ?",new String[]{user.getId()+" "});
+        long id = db.update(TABLE,cV,"_id = ?",new String[]{user.getIdl()+" "});
     }
 
     public void delete (long id){
@@ -84,12 +82,11 @@ public class UserDao {
 
         if (c.moveToNext()){
             user = new UserRequest();
-            user.setId(c.getLong(0));
+            user.setIdl(c.getLong(0));
             user.setNombre(c.getString(1));
             user.setTel(c.getString(2));
             user.setEmail(c.getString(3));
             user.setType(c.getInt(4));
-            user.setIdl(c.getLong(5));
         }
         return user;
     }

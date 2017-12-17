@@ -81,7 +81,7 @@ public abstract class NFCActivity extends AppCompatActivity {
             request.setEmail(email);
             request.setTel(tel);
             request.setType(getType());
-            request.setId(idL);
+            request.setIdl(idL);
 
             dao.insert(request);
             onNFCData(request);

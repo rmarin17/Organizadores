@@ -20,12 +20,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-            db.execSQL(" CREATE TABLE registro (_id INTEGER PRIMARY KEY AUTOINCREMENT"
+            db.execSQL(" CREATE TABLE registro (_id INTEGER PRIMARY KEY"
                 +", nombre VARCHAR"
                 +", tel varchar"
                 +", email varchar"
                 +", type varchar"
-                +", idl varchar"
                 +")"
             );
     }

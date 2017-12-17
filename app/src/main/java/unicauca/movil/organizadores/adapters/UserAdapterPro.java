@@ -6,8 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import unicauca.movil.organizadores.R;
 import unicauca.movil.organizadores.databinding.TemplateUserBinding;
+import unicauca.movil.organizadores.models.UserRequest;
 import unicauca.movil.organizadores.util.L;
 
 /**
@@ -18,14 +21,16 @@ public class UserAdapterPro extends RecyclerView.Adapter<UserAdapterPro.UserView
 
 
     public interface OnUserListener{
-        void onAlarm(View v);
+        void onUser(View v);
     }
 
     LayoutInflater inflater;
     OnUserListener onUserListener;
+    List<UserRequest> data;
 
-    public UserAdapterPro(LayoutInflater inflater, OnUserListener onUserListener) {
+    public UserAdapterPro(LayoutInflater inflater, List<UserRequest> data, OnUserListener onUserListener) {
         this.onUserListener = onUserListener;
+        this.data = data;
         this.inflater = inflater;
     }
 
@@ -38,7 +43,8 @@ public class UserAdapterPro extends RecyclerView.Adapter<UserAdapterPro.UserView
 
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
-        holder.binding.setUser(L.data.get(position));
+        holder.binding.setUser(data.get(position));
+        holder.binding.card.setTag(position);
         holder.binding.setHandler(this);
     }
 
@@ -47,8 +53,8 @@ public class UserAdapterPro extends RecyclerView.Adapter<UserAdapterPro.UserView
         return L.data.size();
     }
 
-    public void onClickAlarm(View v){
-        onUserListener.onAlarm(v);
+    public void onClick(View v){
+        onUserListener.onUser(v);
     }
 
     //Retorna el tipo de view o Celda
