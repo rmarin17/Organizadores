@@ -16,4 +16,5 @@
     <dimen name="icon_prin">25dp</dimen>
     <dimen name="carga_icon">50dp</dimen>
     <dimen name="icon_write">30dp</dimen>
+    <dimen name="read_img">300dp</dimen>
 </resources>

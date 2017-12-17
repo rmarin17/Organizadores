@@ -42,7 +42,7 @@ public class ControlNfc extends AppCompatActivity {
     }
 
     public void goToRead(){
-        Intent intent = new Intent(this, Write.class);
+        Intent intent = new Intent(this, Read.class);
         startActivity(intent);
     }
 

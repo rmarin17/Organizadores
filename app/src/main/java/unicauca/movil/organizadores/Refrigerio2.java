@@ -28,7 +28,6 @@ public class Refrigerio2 extends NFCActivity implements HttpAsyncTask.OnResponse
         task.execute(url, json);
 
 
-
         Toast.makeText(this, R.string.correcto, Toast.LENGTH_SHORT).show();
 
     }

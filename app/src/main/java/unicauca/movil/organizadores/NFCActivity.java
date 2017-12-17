@@ -39,6 +39,7 @@ public abstract class NFCActivity extends AppCompatActivity {
         gson =  new Gson();
         pendingIntent = PendingIntent.getActivity(this, 0,
                 new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        dao = new UserDao(this);
 
     }
 
