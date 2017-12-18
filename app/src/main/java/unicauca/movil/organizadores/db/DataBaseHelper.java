@@ -25,13 +25,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 +", tel varchar"
                 +", email varchar"
                 +", type varchar"
+                +", idl LONG"
+                +", actividad varchar"
                 +")"
             );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE alarma");
+            db.execSQL("DROP TABLE registro");
             onCreate(db);
     }
 }

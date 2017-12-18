@@ -83,7 +83,6 @@ public abstract class NFCActivity extends AppCompatActivity {
             request.setType(getType());
             request.setIdl(idL);
 
-            dao.insert(request);
             onNFCData(request);
         }
 

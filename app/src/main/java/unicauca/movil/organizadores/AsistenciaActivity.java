@@ -72,6 +72,9 @@ public class AsistenciaActivity extends NFCActivity implements HttpAsyncTask.OnR
     @Override
     protected void onNFCData(UserRequest request) {
 
+
+        dao.insert(request);
+
         String json = gson.toJson(request);
         String url = "http://192.168.43.232:8080/tet/public/index.php/ref";
         UserRequest request1 = gson.fromJson(json, UserRequest.class);

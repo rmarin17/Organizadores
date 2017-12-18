@@ -20,7 +20,9 @@ public class UserDao {
     static final String C_NAME = "nombre";
     static final String C_PHONE = "tel";
     static final String C_EMAIL = "email";
-    static final String C_IDL = "_id";
+    static final String C_IDL = "idl";
+    static final String C_ACTIVITY = "actividad";
+
     static final String C_TYPE = "type";
     SQLiteDatabase db;
 
@@ -31,12 +33,14 @@ public class UserDao {
 
     public void insert (UserRequest user){
         ContentValues cV = new ContentValues();
-        cV.put(C_IDL, user.getIdl());
         cV.put(C_NAME, user.getNombre());
         cV.put(C_PHONE, user.getTel());
         cV.put(C_EMAIL, user.getEmail());
         cV.put(C_TYPE, user.getType());
-        db.insert(TABLE,null,cV);
+        cV.put(C_IDL, user.getIdl());
+        cV.put(C_ACTIVITY, user.getActividad());
+        long id = db.insert(TABLE,null,cV);
+        user.setId(id);
     }
 
     public void update (UserRequest user){
@@ -46,9 +50,9 @@ public class UserDao {
         cV.put(C_NAME, user.getNombre());
         cV.put(C_PHONE, user.getTel());
         cV.put(C_EMAIL, user.getEmail());
-        cV.put(C_IDL, user.getIdl());
         cV.put(C_TYPE, user.getType());
-
+        cV.put(C_IDL, user.getIdl());
+        cV.put(C_ACTIVITY, user.getActividad());
         long id = db.update(TABLE,cV,"_id = ?",new String[]{user.getIdl()+" "});
     }
 
@@ -63,16 +67,15 @@ public class UserDao {
 
     }
 
-    public List<UserRequest> getAll (){
-
+    public List<UserRequest> getAll(){
         Cursor c = db.rawQuery("SELECT * FROM registro",null);
         return cursorToList(c);
     }
 
-    public List<UserRequest> getByDate (String fecha_sistema, String hora_sistema){
+    public List<UserRequest> getByActivity (String actividad){
 
         //Cursor c = db.rawQuery("SELECT * FROM alarma WHERE fecha LIKE '%"+fecha_sistema+"%'",null);   ",null);//
-        Cursor c = db.rawQuery("SELECT * FROM registro WHERE procelo='"+fecha_sistema+"' AND hora= '"+hora_sistema+"'", null);
+        Cursor c = db.rawQuery("SELECT * FROM registro WHERE actividad='"+actividad, null);
         return cursorToList(c);
     }
 
@@ -82,11 +85,13 @@ public class UserDao {
 
         if (c.moveToNext()){
             user = new UserRequest();
-            user.setIdl(c.getLong(0));
+            user.setId(c.getLong(0));
             user.setNombre(c.getString(1));
             user.setTel(c.getString(2));
             user.setEmail(c.getString(3));
             user.setType(c.getInt(4));
+            user.setIdl(c.getLong(5));
+            user.setActividad(c.getString(6));
         }
         return user;
     }

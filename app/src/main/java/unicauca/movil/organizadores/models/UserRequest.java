@@ -8,10 +8,17 @@ public class UserRequest {
     public static final int TYPE_ASIST = 0;
     public static final int TYPE_REF = 1;
 
-    String nombre, tel, email;
-    long idl;
+    String nombre, tel, email, actividad;
+    long id, idl;
     int type;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public static int getTypeAsist() {
         return TYPE_ASIST;
@@ -59,5 +66,13 @@ public class UserRequest {
 
     public void setIdl(long idl) {
         this.idl = idl;
+    }
+
+    public String getActividad() {
+        return actividad;
+    }
+
+    public void setActividad(String actividad) {
+        this.actividad = actividad;
     }
 }
