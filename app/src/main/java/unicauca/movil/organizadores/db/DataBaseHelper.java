@@ -29,6 +29,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 +", actividad varchar"
                 +")"
             );
+
+        db.execSQL(" CREATE TABLE boton (_id INTEGER PRIMARY KEY AUTOINCREMENT"
+                +", nombre VARCHAR"
+                +")"
+        );
     }
 
     @Override

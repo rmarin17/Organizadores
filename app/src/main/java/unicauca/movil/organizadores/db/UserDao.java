@@ -53,7 +53,7 @@ public class UserDao {
         cV.put(C_TYPE, user.getType());
         cV.put(C_IDL, user.getIdl());
         cV.put(C_ACTIVITY, user.getActividad());
-        long id = db.update(TABLE,cV,"_id = ?",new String[]{user.getIdl()+" "});
+        long id = db.update(TABLE,cV,"_id = ?",new String[]{user.getId()+" "});
     }
 
     public void delete (long id){
@@ -75,7 +75,7 @@ public class UserDao {
     public List<UserRequest> getByActivity (String actividad){
 
         //Cursor c = db.rawQuery("SELECT * FROM alarma WHERE fecha LIKE '%"+fecha_sistema+"%'",null);   ",null);//
-        Cursor c = db.rawQuery("SELECT * FROM registro WHERE actividad='"+actividad, null);
+        Cursor c = db.rawQuery("SELECT * FROM registro WHERE actividad='"+actividad+"'", null);
         return cursorToList(c);
     }
 

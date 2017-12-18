@@ -13,6 +13,7 @@ import java.util.List;
 
 import unicauca.movil.organizadores.adapters.ButtonAdapter;
 import unicauca.movil.organizadores.databinding.ActivityControlRefBinding;
+import unicauca.movil.organizadores.db.BotonDao;
 import unicauca.movil.organizadores.models.Boton;
 import unicauca.movil.organizadores.util.L;
 
@@ -22,7 +23,7 @@ public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnBut
 
     ButtonAdapter adapter;
 
-    //ButtonDao dao;
+    BotonDao dao;
 
 
     @Override
@@ -31,6 +32,7 @@ public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnBut
         binding = DataBindingUtil.setContentView(this, R.layout.activity_control_ref);
         binding.setHandler(this);
 
+        dao = new BotonDao(this);
         L.bdata = new ArrayList<>();
         adapter = new ButtonAdapter(getLayoutInflater(), L.bdata,this);
         binding.recycler.setAdapter(adapter);
@@ -43,18 +45,19 @@ public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnBut
 
     public void loadData() {
 
-        Boton b = new Boton();
-        b.setId(1);
-        b.setNombre("Refrigerio 1");
+        List<Boton> list = dao.getAll();
 
-        Boton b2 = new Boton();
-        b2.setId(2);
-        b2.setNombre("Refrigerio 2");
+        if(list.size() > 0 ) {
+            for (Boton b : list) {
+                L.bdata.add(b);
+            }
+            adapter.notifyDataSetChanged();
+        }
+        else {
+            Toast.makeText(this, R.string.empy, Toast.LENGTH_LONG).show();
+        }
 
-        L.bdata.add(b);
-        L.bdata.add(b2);
 
-        adapter.notifyDataSetChanged();
 
     }
 

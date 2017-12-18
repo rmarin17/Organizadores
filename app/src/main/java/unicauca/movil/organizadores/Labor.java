@@ -53,14 +53,17 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
     }
 
     public void loadData() {
+        L.data.clear();
 
-        List<UserRequest> list = dao.getAll();
+        List<UserRequest> list = dao.getByActivity(actividad);
 
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
                 L.data.add(u);
+
             }
             adapter.notifyDataSetChanged();
+
         }
         else {
             Toast.makeText(this, R.string.empy, Toast.LENGTH_LONG).show();
@@ -77,7 +80,7 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         dao.insert(request);
 
         String json = gson.toJson(request);
-        String url = "http://192.168.0.108:7070/ref1/public/index.php/ref";
+        String url = "http://192.168.43.180:7070/ref1/public/index.php/ref";
         UserRequest request1 = gson.fromJson(json, UserRequest.class);
 
         HttpAsyncTask task = new HttpAsyncTask(this, 101, HttpAsyncTask.METHOD_POST, this);
