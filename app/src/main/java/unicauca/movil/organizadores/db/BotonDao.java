@@ -26,7 +26,7 @@ public class BotonDao {
         DataBaseHelper helper = new DataBaseHelper(context);
         db = helper.getWritableDatabase();
     }
-
+//algo
     public void insert (Boton boton){
         ContentValues cV = new ContentValues();
         cV.put(C_NAME, boton.getNombre());
