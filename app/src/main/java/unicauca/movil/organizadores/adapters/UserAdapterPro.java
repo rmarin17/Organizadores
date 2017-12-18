@@ -50,7 +50,7 @@ public class UserAdapterPro extends RecyclerView.Adapter<UserAdapterPro.UserView
 
     @Override
     public int getItemCount() {
-        return L.data.size();
+        return data.size();
     }
 
     public void onClick(View v){

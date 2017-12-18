@@ -2,6 +2,7 @@ package unicauca.movil.organizadores.util;
 
 import java.util.List;
 
+import unicauca.movil.organizadores.models.Boton;
 import unicauca.movil.organizadores.models.UserRequest;
 
 /**
@@ -11,4 +12,6 @@ import unicauca.movil.organizadores.models.UserRequest;
 public class L {
 
     public static List<UserRequest> data;
+    public static List<Boton> bdata;
+
 }

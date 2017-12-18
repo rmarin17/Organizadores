@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="handler"
-            type="unicauca.movil.organizadores.AsistenciaActivity"
+            name="acti"
+            type="unicauca.movil.organizadores.models.Boton"
             />
     </data>
 
