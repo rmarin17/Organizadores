@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import unicauca.movil.organizadores.models.Boton;
-import unicauca.movil.organizadores.models.UserRequest;
 
 /**
  * Created by RicardoM on 18/12/2017.
@@ -26,7 +25,7 @@ public class BotonDao {
         DataBaseHelper helper = new DataBaseHelper(context);
         db = helper.getWritableDatabase();
     }
-//algo
+
     public void insert (Boton boton){
         ContentValues cV = new ContentValues();
         cV.put(C_NAME, boton.getNombre());

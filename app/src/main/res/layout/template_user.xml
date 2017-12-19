@@ -74,7 +74,7 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/nombre"
-                    app:srcCompat="@drawable/ic_name" />
+                    app:srcCompat="@drawable/ic_mail" />
 
                 <TextView
                     android:id="@+id/tipo"
