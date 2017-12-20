@@ -10,10 +10,197 @@
             />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="unicauca.movil.organizadores.ControlNfc">
+        android:stretchColumns="*"
+        >
+
+    <TableLayout
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="unicauca.movil.peliculas.DetailActivity">
+
+        <android.support.v4.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:elevation="@dimen/card_elevation"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/btnread"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:onClick="@{()->handler.goToRead()}"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                        <ImageView
+                            android:layout_width="@dimen/carga_icon"
+                            android:layout_height="@dimen/carga_icon"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/read_nfc" />
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_read"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/nfc_des"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5"
+                        tools:text="@string/nfc_des" />
+
+                    <LinearLayout
+                        android:id="@+id/btndelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:onClick="@{()->handler.delete()}"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.803"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                        <ImageView
+                            android:layout_width="@dimen/carga_icon"
+                            android:layout_height="@dimen/carga_icon"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/ic_delete" />
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_delete"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="@dimen/icon_prin"
+                        android:layout_height="@dimen/icon_prin"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_des" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/des"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Descripción" />
+
+                    <LinearLayout
+                        android:id="@+id/btnwrite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:onClick="@{()->handler.goToWrite()}"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                        <ImageView
+                            android:layout_width="@dimen/carga_icon"
+                            android:layout_height="@dimen/carga_icon"
+                            app:srcCompat="@drawable/ic_create" />
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_text_write"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    </LinearLayout>
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed"
+            app:contentScrim="@color/colorPrimary"
+
+            >
 
         <ImageView
             android:id="@+id/imageView5"
@@ -24,156 +211,105 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/controlnfc" />
+            app:srcCompat="@drawable/nfctags" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:text="@string/title_controlnfc"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Tag's NFC Control" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="@dimen/icon_prin"
-            android:layout_height="@dimen/icon_prin"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:srcCompat="@drawable/ic_des" />
+                />
+        </android.support.design.widget.CollapsingToolbarLayout>
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/des"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            tools:text="Descripción" />
+        </android.support.design.widget.AppBarLayout>
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/nfc_des"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
-            tools:text="@string/nfc_des" />
 
-        <LinearLayout
-            android:id="@+id/btnwrite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="@{()->handler.goToWrite()}"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6">
+        </android.support.design.widget.CoordinatorLayout>
 
-            <ImageView
-                android:layout_width="@dimen/carga_icon"
-                android:layout_height="@dimen/carga_icon"
-                app:srcCompat="@drawable/ic_create" />
 
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Body2"
+    </TableLayout>
+
+        <TableRow
+            android:background="#ffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/small"
+            >
+            <LinearLayout
+                android:id="@+id/btnPonentes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_text_write"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="@{()->handler.goToRegis()}"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/btnread"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="@{()->handler.goToRead()}"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6">
+                <ImageView
+                    android:layout_width="@dimen/carga_icon"
+                    android:layout_height="@dimen/carga_icon"
+                    app:srcCompat="@drawable/ic_control" />
 
-            <ImageView
-                android:layout_width="@dimen/carga_icon"
-                android:layout_height="@dimen/carga_icon"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/read_nfc" />
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_text_control"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
 
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Body2"
+            <LinearLayout
+                android:id="@+id/btnnfc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_text_read"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="@{()->handler.goToMain()}"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/btndelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="@{()->handler.delete()}"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.803"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6">
+                <ImageView
+                    android:layout_width="@dimen/carga_icon"
+                    android:layout_height="@dimen/carga_icon"
+                    app:srcCompat="@drawable/ic_principal" />
 
-            <ImageView
-                android:layout_width="@dimen/carga_icon"
-                android:layout_height="@dimen/carga_icon"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_delete" />
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_text_prin"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
 
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Body2"
+            <LinearLayout
+                android:id="@+id/btnregistros"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_text_delete"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:onClick="@{()->handler.goToIn()}"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/carga_icon"
+                    android:layout_height="@dimen/carga_icon"
+                    app:srcCompat="@drawable/ic_register" />
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_text_registro"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
 
 
-    </android.support.constraint.ConstraintLayout>
+        </TableRow>
+    </TableLayout>
 </layout>
 

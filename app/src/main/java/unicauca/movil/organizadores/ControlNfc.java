@@ -46,6 +46,21 @@ public class ControlNfc extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToIn(){
+        Intent intent = new Intent(this, ControlRef.class);
+        startActivity(intent);
+    }
+
+    public void goToMain(){
+        Intent intent = new Intent(this, PrincipalPro.class);
+        startActivity(intent);
+    }
+
+    public void goToRegis(){
+        Intent intent = new Intent(this, ControlAsis.class);
+        startActivity(intent);
+    }
+
     public void delete(){
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);

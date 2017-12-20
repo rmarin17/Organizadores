@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -28,7 +29,12 @@ public class ControlAsis extends AppCompatActivity implements ButtonAdapter.OnBu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_control_asis);
+
+
+
+
         binding.setHandler(this);
+
 
         dao = new BotonDao(this);
         L.bdata = new ArrayList<>();

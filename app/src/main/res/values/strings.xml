@@ -33,7 +33,7 @@
     <string name="alert_msg_nfc">Acerca el tag NFC para escribir.</string>
     <string name="alert_title_nfc">Escribir TAG NFC</string>
     <string name="title_controlnfc">Tag\'s NFC Control</string>
-    <string name="nfc_des">Controla todos los aspectos de los Tag’s NFC como leer, escribir y borrar la información de cada Tag NFC.</string>
+    <string name="nfc_des">Controla todos los aspectos de los Tag’s NFC como leer, escribir y borrar la información de cada uno.</string>
     <string name="btn_text_write">Escribir</string>
     <string name="btn_text_read">Leer</string>
     <string name="btn_text_delete">Eliminar</string>
@@ -64,4 +64,8 @@
     <string name="title_activity_prinpro">EventMP</string>
     <string name="alert_title_event">Salir</string>
     <string name="alert_msg_event">¿Está seguro de borrar todos los datos registrados del evento? (Tenga en cuenta que una vez salga del evento, no hay marcha atras)</string>
+    <string name="prin_organizers">Organizers</string>
+    <string name="btn_text_prin">Principal</string>
+    <string name="control_de_registros">Control de Registros</string>
+    <string name="control_de_asistencia">Control de Asistencia</string>
 </resources>
