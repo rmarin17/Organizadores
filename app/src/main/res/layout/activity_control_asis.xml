@@ -8,7 +8,7 @@
     <data>
         <variable
             name="handler"
-            type="unicauca.movil.organizadores.ControlRef"
+            type="unicauca.movil.organizadores.ControlAsis"
             />
 
     </data>
@@ -35,7 +35,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/control" />
+                    app:srcCompat="@drawable/asist" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler"

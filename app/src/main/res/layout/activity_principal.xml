@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="unicauca.movil.organizadores.Principal" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:id="@+id/activity_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            tools:context="unicauca.movil.eventmpro.Principal">
+
+            <FrameLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_img"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/events" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mask"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
+
+
+            <TableLayout
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin">
+
+                    <ImageView
+                        android:layout_width="@dimen/principal_icon"
+                        android:layout_height="@dimen/principal_icon"
+                        android:layout_marginRight="@dimen/small"
+                        app:srcCompat="@drawable/ic_des" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/small"
+                            android:text="@string/principal_objetivo"
+                            android:textColor="@color/textTitle" />
+
+                        <TextView
+                            style="@style/Base.TextAppearance.AppCompat.Body1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/principal_description"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                tools:layout_editor_absoluteX="130dp"
+                tools:layout_editor_absoluteY="351dp">
+
+                <LinearLayout
+                    android:id="@+id/btnExplorer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="@{()->handler.goToExplorer()}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_btn"
+                        android:layout_height="@dimen/icon_btn"
+                        app:srcCompat="@drawable/ic_folder" />
+
+                    <TextView
+                        style="@style/Base.TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_text_cargar"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+
+        </TableLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

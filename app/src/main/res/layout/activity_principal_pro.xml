@@ -106,7 +106,7 @@
                 android:layout_gravity="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:onClick="@{()->handler.goToMain()}"
+                android:onClick="@{()->handler.goToRegis()}"
                 android:gravity="center"
                 android:orientation="vertical">
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Organizadores</string>
+    <string name="app_name">EventMP organizers</string>
     <string name="url_base">192.168.43.232</string>
     <string name="http_error_404">REcurso no encontrado</string>
     <string name="http_error_server">Error en servidor</string>
@@ -46,4 +46,16 @@
     <string name="alert_msg_read">Acerca la etiqueta para leerla</string>
     <string name="ok">Ok</string>
     <string name="empy">No se encuentran datos registrados</string>
+    <string name="msg_alert">Valor Repetido</string>
+    <string name="alert_msg_validar">El usuario ya se encuentra registrado en la actividad</string>
+    <string name="btn_text_cargar">Carga tu Archivo</string>
+    <string name="principal_objetivo">Descripción</string>
+    <string name="principal_description">Bienvenido a la aplicación exclusiva para organizadores del evento, aquí puedes controlar la asistencia, hacer registro y controlar las etiquetas NFC (Leer, borrar y eliminar), lo único que necesitas es el archivo de configuración XML de tu evento el cuadas puedes descargar de la página web oficial, selecciona tu archivo para continuar con el botón carga tu archivo.</string>
+    <string name="alert_title">Cargar Datos</string>
+    <string name="alert_msg">¿Esta seguro de cargar los datos?</string>
+    <string name="msj_carga">El archivo selecionado es no valido o esta dañado (Recuerde que el tipo de archivo es .xml)</string>
+    <string name="paso2">Ya tienes tu archivo seleccionado correctamente, el siguiente paso es cargarlo a la aplicación con el botón cargar datos o sino estas seguro del archivo seleccionado, puedes volver a seleccionar otro archivo con el botón buscar archivo.</string>
+    <string name="seleccion">Archivo Seleccionado</string>
+    <string name="btn_text_backup">Cargar Datos</string>
+    <string name="btn_text_archivo">Buscar Archivo</string>
 </resources>

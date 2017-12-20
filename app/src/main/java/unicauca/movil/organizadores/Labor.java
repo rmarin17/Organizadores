@@ -1,7 +1,9 @@
 package unicauca.movil.organizadores;
 
+import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,7 @@ import unicauca.movil.organizadores.net.HttpAsyncTask;
 import unicauca.movil.organizadores.net.Response;
 import unicauca.movil.organizadores.util.L;
 
-public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListener, UserAdapterPro.OnUserListener {
+public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListener, UserAdapterPro.OnUserListener, DialogInterface.OnClickListener {
 
     ActivityLaborBinding binding;
 
@@ -28,6 +30,8 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
     String actividad;
 
+    List<UserRequest> data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,7 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
 
 
+        data = new ArrayList<UserRequest>();
         L.data = new ArrayList<>();
         dao = new UserDao(this);
 
@@ -60,7 +65,6 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
                 L.data.add(u);
-
             }
             adapter.notifyDataSetChanged();
 
@@ -77,19 +81,46 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
         request.setActividad(actividad);
 
-        dao.insert(request);
+        Long codigo = request.getIdl();
+        int alarma = 0;
+        List<UserRequest> list = dao.getByActivity(actividad);
+        if(list.size() > 0 ) {
+            for (UserRequest u : list) {
+                data.add(u);
+                if (codigo == u.getIdl()){
+                    generateAlert();
+                    alarma = 1;
+                }
+            }
+        }
 
-        String json = gson.toJson(request);
-        String url = "http://192.168.43.180:7070/ref1/public/index.php/ref";
-        UserRequest request1 = gson.fromJson(json, UserRequest.class);
+        if (alarma == 0){
+            dao.insert(request);
 
-        HttpAsyncTask task = new HttpAsyncTask(this, 101, HttpAsyncTask.METHOD_POST, this);
-        task.execute(url, json);
+            String json = gson.toJson(request);
+            String url = "http://192.168.43.180:7070/ref1/public/index.php/ref";
+            UserRequest request1 = gson.fromJson(json, UserRequest.class);
 
-        Toast.makeText(this, R.string.correcto, Toast.LENGTH_SHORT).show();
+            HttpAsyncTask task = new HttpAsyncTask(this, 101, HttpAsyncTask.METHOD_POST, this);
+            task.execute(url, json);
 
-        loadData();
+            Toast.makeText(this, R.string.correcto, Toast.LENGTH_SHORT).show();
 
+            loadData();
+        }
+
+
+    }
+
+    public void generateAlert() {
+
+        AlertDialog alert = new AlertDialog.Builder(this)
+                .setTitle(R.string.msg_alert)
+                .setIcon(R.drawable.ic_warning)
+                .setMessage(R.string.alert_msg_validar)
+                .setPositiveButton(R.string.ok,this)
+                .create();
+        alert.show();
     }
 
     @Override
@@ -105,6 +136,11 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
     @Override
     public void onUser(View v) {
+
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
 
     }
 }

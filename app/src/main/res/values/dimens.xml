@@ -18,4 +18,7 @@
     <dimen name="icon_write">30dp</dimen>
     <dimen name="read_img">300dp</dimen>
     <dimen name="card_elevation">8dp</dimen>
+    <dimen name="icon_btn">40dp</dimen>
+    <dimen name="principal_icon">25dp</dimen>
+    <dimen name="login_img">200dp</dimen>
 </resources>
