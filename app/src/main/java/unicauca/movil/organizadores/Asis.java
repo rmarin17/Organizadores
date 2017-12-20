@@ -52,14 +52,13 @@ public class Asis extends AppCompatActivity implements UserAdapterPro.OnUserList
 
     public void loadData() {
         List<UserRequest> list = dao.getByActivity(actividad);
-
+        binding.canti.setText(""+list.size());
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
                 L.data.add(u);
 
             }
             adapter.notifyDataSetChanged();
-
         }
         else {
             Toast.makeText(this, R.string.empy, Toast.LENGTH_LONG).show();

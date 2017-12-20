@@ -67,7 +67,7 @@ public class ControlAsis extends AppCompatActivity implements ButtonAdapter.OnBu
     @Override
     public void onButton(int position) {
 
-        Intent intent = new Intent(this, Labor.class);
+        Intent intent = new Intent(this, Asis.class);
         intent.putExtra("pos", position);
         startActivity(intent);
 
