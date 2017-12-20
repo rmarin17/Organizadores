@@ -50,7 +50,7 @@
     <string name="alert_msg_validar">El usuario ya se encuentra registrado en la actividad</string>
     <string name="btn_text_cargar">Carga tu Archivo</string>
     <string name="principal_objetivo">Descripción</string>
-    <string name="principal_description">Bienvenido a la aplicación exclusiva para organizadores del evento, aquí puedes controlar la asistencia, hacer registro y controlar las etiquetas NFC (Leer, borrar y eliminar), lo único que necesitas es el archivo de configuración XML de tu evento el cuadas puedes descargar de la página web oficial, selecciona tu archivo para continuar con el botón carga tu archivo.</string>
+    <string name="principal_description">Bienvenido a EventMP organizers para cargar tu evento por favor descarga el archivo de configuración XML de nuestra página web oficial y selecciónalo desde nuestro explorador de archivos con el botón carga tu archivo.</string>
     <string name="alert_title">Cargar Datos</string>
     <string name="alert_msg">¿Esta seguro de cargar los datos?</string>
     <string name="msj_carga">El archivo selecionado es no valido o esta dañado (Recuerde que el tipo de archivo es .xml)</string>
@@ -58,4 +58,10 @@
     <string name="seleccion">Archivo Seleccionado</string>
     <string name="btn_text_backup">Cargar Datos</string>
     <string name="btn_text_archivo">Buscar Archivo</string>
+    <string name="action_more">Mas</string>
+    <string name="action_out">Salir</string>
+    <string name="action_info">Info</string>
+    <string name="title_activity_prinpro">EventMP</string>
+    <string name="alert_title_event">Salir</string>
+    <string name="alert_msg_event">¿Está seguro de borrar todos los datos registrados del evento? (Tenga en cuenta que una vez salga del evento, no hay marcha atras)</string>
 </resources>

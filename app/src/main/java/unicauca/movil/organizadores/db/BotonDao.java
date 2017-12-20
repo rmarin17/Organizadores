@@ -33,6 +33,10 @@ public class BotonDao {
         boton.setId(id);
     }
 
+    public void deleteAll (){
+        db.execSQL("DELETE FROM boton");
+    }
+
     public void update (Boton boton){
 
         ContentValues cV = new ContentValues();

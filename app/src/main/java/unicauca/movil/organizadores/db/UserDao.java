@@ -60,6 +60,10 @@ public class UserDao {
         db.delete(TABLE,"_id = "+id, null);
     }
 
+    public void deleteAll (){
+        db.execSQL("DELETE FROM registro");
+    }
+
     public  UserRequest getByid (long id){
 
         Cursor c = db.rawQuery("SELECT * FROM alarma WHERE _id="+id,null);

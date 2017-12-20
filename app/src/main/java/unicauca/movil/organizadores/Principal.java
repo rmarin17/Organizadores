@@ -41,7 +41,8 @@ public class Principal extends AppCompatActivity {
 
         List<Boton> listb = bdao.getAll();
         List<UserRequest> listu = udao.getAll();
-        if (listb.size() > 0 && listu.size() > 0){
+
+        if (listb.size() > 0){
             Intent intent = new Intent(this, PrincipalPro.class);
             startActivity(intent);
             finish();

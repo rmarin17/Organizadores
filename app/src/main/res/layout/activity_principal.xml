@@ -44,7 +44,6 @@
 
                 <TableRow
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
                     android:paddingTop="@dimen/activity_horizontal_margin">
@@ -82,7 +81,7 @@
 
             <FrameLayout
                 android:layout_height="wrap_content"
-                android:layout_weight="0.4"
+                android:layout_weight="1"
                 tools:layout_editor_absoluteX="130dp"
                 tools:layout_editor_absoluteY="351dp">
 
