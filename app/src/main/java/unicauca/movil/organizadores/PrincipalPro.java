@@ -13,6 +13,7 @@ import java.util.List;
 
 import unicauca.movil.organizadores.databinding.ActivityPrincipalProBinding;
 import unicauca.movil.organizadores.db.BotonDao;
+import unicauca.movil.organizadores.db.EventoDao;
 import unicauca.movil.organizadores.db.UserDao;
 import unicauca.movil.organizadores.models.Boton;
 
@@ -22,6 +23,7 @@ public class PrincipalPro extends AppCompatActivity implements DialogInterface.O
 
     BotonDao bdao;
     UserDao udao;
+    EventoDao edao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +31,9 @@ public class PrincipalPro extends AppCompatActivity implements DialogInterface.O
         binding = DataBindingUtil.setContentView(this, R.layout.activity_principal_pro);
         binding.setHandler(this);
 
-
         bdao = new BotonDao(this);
         udao = new UserDao(this);
-
+        edao = new EventoDao(this);
     }
 
 
@@ -61,18 +62,13 @@ public class PrincipalPro extends AppCompatActivity implements DialogInterface.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.salir:
-
                 generateAlert();
-
                 break;
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
     public void generateAlert(){
-
         AlertDialog alert = new AlertDialog.Builder(this)
                 .setTitle(R.string.alert_title_event)
                 .setIcon(R.drawable.ic_warning)
@@ -85,23 +81,16 @@ public class PrincipalPro extends AppCompatActivity implements DialogInterface.O
 
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
-
-
         if( i == DialogInterface.BUTTON_POSITIVE) {
-
             udao.deleteAll();
             bdao.deleteAll();
-
+            edao.deleteAll();
             Intent inten = new Intent(this, Principal.class);
             inten.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(inten);
-            //finish();
-
         }
-
         if( i == DialogInterface.BUTTON_NEGATIVE) {
 
         }
-
     }
 }

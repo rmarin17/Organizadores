@@ -34,6 +34,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 +", nombre VARCHAR"
                 +")"
         );
+
+        db.execSQL(" CREATE TABLE evento (_id INTEGER PRIMARY KEY"
+                +", url VARCHAR"
+                +", nombre VARCHAR"
+                +")"
+        );
     }
 
     @Override

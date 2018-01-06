@@ -14,8 +14,10 @@ import java.util.List;
 
 import unicauca.movil.organizadores.adapters.UserAdapterPro;
 import unicauca.movil.organizadores.databinding.ActivityLaborBinding;
+import unicauca.movil.organizadores.db.EventoDao;
 import unicauca.movil.organizadores.db.UserDao;
 import unicauca.movil.organizadores.models.Boton;
+import unicauca.movil.organizadores.models.Evento;
 import unicauca.movil.organizadores.models.UserRequest;
 import unicauca.movil.organizadores.net.HttpAsyncTask;
 import unicauca.movil.organizadores.net.Response;
@@ -26,9 +28,10 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
     ActivityLaborBinding binding;
 
     UserAdapterPro adapter;
-    UserDao dao;
+    EventoDao edao;
 
     String actividad;
+    String actividad_replace;
 
     List<UserRequest> data;
 
@@ -36,54 +39,41 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_labor);
-
-
-
         data = new ArrayList<UserRequest>();
         L.data = new ArrayList<>();
-        dao = new UserDao(this);
-
+        edao = new EventoDao(this);
         int pos = getIntent().getExtras().getInt("pos");
         Boton boton = L.bdata.get(pos);
         actividad = boton.getNombre();
-
+        actividad_replace = actividad.replace(" ", "_");
         binding.setActi(boton);
-
         adapter = new UserAdapterPro(getLayoutInflater(), L.data, this);
         binding.recycler.setAdapter(adapter);
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
-
         loadData();
-
     }
 
     public void loadData() {
         L.data.clear();
-
-        List<UserRequest> list = dao.getByActivity(actividad);
-
+        List<UserRequest> list = dao.getByActivity(actividad_replace);
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
                 L.data.add(u);
             }
             adapter.notifyDataSetChanged();
-
         }
         else {
             Toast.makeText(this, R.string.empy, Toast.LENGTH_LONG).show();
         }
-
     }
-
 
     @Override
     protected void onNFCData(UserRequest request) {
-
-        request.setActividad(actividad);
-
+        request.setActividad(actividad_replace);
         Long codigo = request.getIdl();
         int alarma = 0;
         List<UserRequest> list = dao.getByActivity(actividad);
+        List<Evento> elist = edao.getAll();
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
                 data.add(u);
@@ -93,27 +83,20 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
                 }
             }
         }
-
         if (alarma == 0){
             dao.insert(request);
-
+            String url = elist.get(0).getUrl();
             String json = gson.toJson(request);
-            String url = "http://192.168.43.180:7070/ref1/public/index.php/ref";
+            //String url = "http://192.168.0.107:8080/asistencia/public/index.php/ref";
             UserRequest request1 = gson.fromJson(json, UserRequest.class);
-
             HttpAsyncTask task = new HttpAsyncTask(this, 101, HttpAsyncTask.METHOD_POST, this);
             task.execute(url, json);
-
             Toast.makeText(this, R.string.correcto, Toast.LENGTH_SHORT).show();
-
             loadData();
         }
-
-
     }
 
     public void generateAlert() {
-
         AlertDialog alert = new AlertDialog.Builder(this)
                 .setTitle(R.string.msg_alert)
                 .setIcon(R.drawable.ic_warning)
@@ -128,7 +111,6 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         return UserRequest.TYPE_ASIST;
     }
 
-
     @Override
     public void onResponse(int request, Response response) {
         Log.i("","");
@@ -136,11 +118,9 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
     @Override
     public void onUser(View v) {
-
     }
 
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
-
     }
 }
