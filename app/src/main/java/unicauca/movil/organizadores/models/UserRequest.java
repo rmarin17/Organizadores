@@ -9,8 +9,16 @@ public class UserRequest {
     public static final int TYPE_REF = 1;
 
     String nombre, tel, email, actividad;
-    long id, idl;
+    long id, idl, ide;
     int type;
+
+    public long getIde() {
+        return ide;
+    }
+
+    public void setIde(long ide) {
+        this.ide = ide;
+    }
 
     public long getId() {
         return id;

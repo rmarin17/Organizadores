@@ -74,7 +74,9 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         int alarma = 0;
         List<UserRequest> list = dao.getByActivity(actividad);
         List<Evento> elist = edao.getAll();
-        if(list.size() > 0 ) {
+        Long ide = elist.get(0).getIde();
+        request.setIde(ide);
+        if(list.size() > 0) {
             for (UserRequest u : list) {
                 data.add(u);
                 if (codigo == u.getIdl()){

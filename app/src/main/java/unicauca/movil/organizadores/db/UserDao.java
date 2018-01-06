@@ -21,6 +21,7 @@ public class UserDao {
     static final String C_PHONE = "tel";
     static final String C_EMAIL = "email";
     static final String C_IDL = "idl";
+    static final String C_IDE = "ide";
     static final String C_ACTIVITY = "actividad";
 
     static final String C_TYPE = "type";
@@ -38,6 +39,7 @@ public class UserDao {
         cV.put(C_EMAIL, user.getEmail());
         cV.put(C_TYPE, user.getType());
         cV.put(C_IDL, user.getIdl());
+        cV.put(C_IDE, user.getIde());
         cV.put(C_ACTIVITY, user.getActividad());
         long id = db.insert(TABLE,null,cV);
         user.setId(id);
@@ -52,6 +54,7 @@ public class UserDao {
         cV.put(C_EMAIL, user.getEmail());
         cV.put(C_TYPE, user.getType());
         cV.put(C_IDL, user.getIdl());
+        cV.put(C_IDE, user.getIde());
         cV.put(C_ACTIVITY, user.getActividad());
         long id = db.update(TABLE,cV,"_id = ?",new String[]{user.getId()+" "});
     }
@@ -95,7 +98,8 @@ public class UserDao {
             user.setEmail(c.getString(3));
             user.setType(c.getInt(4));
             user.setIdl(c.getLong(5));
-            user.setActividad(c.getString(6));
+            user.setIde(c.getLong(6));
+            user.setActividad(c.getString(7));
         }
         return user;
     }

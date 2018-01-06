@@ -26,6 +26,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 +", email varchar"
                 +", type varchar"
                 +", idl LONG"
+                +", ide LONG"
                 +", actividad varchar"
                 +")"
             );
