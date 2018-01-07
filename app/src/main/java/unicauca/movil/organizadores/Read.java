@@ -18,15 +18,16 @@ public class Read extends NFCActivity implements DialogInterface.OnClickListener
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_read);
         binding.setHandler(this);
-
         generateAlert();
     }
 
     @Override
     protected void onNFCData(UserRequest request) {
-        binding.nombre.setText(request.getNombre());
-        binding.telefono.setText(request.getTel());
-        binding.mail.setText(request.getEmail());
+        if (request!=null) {
+            binding.nombre.setText(request.getNombre());
+            binding.telefono.setText(request.getTel());
+            binding.mail.setText(request.getEmail());
+        }
     }
 
     public void generateAlert() {

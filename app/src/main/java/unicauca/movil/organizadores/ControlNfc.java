@@ -99,21 +99,16 @@ public class ControlNfc extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         // Tag writing mode
-
-
         if (mWriteMode && NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             NdefRecord record = NdefRecord.createUri( " ");
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
-                Toast.makeText(this, "Success: Wrote placeid to nfc tag", Toast.LENGTH_LONG)
+                Toast.makeText(this, R.string.action_complete, Toast.LENGTH_LONG)
                         .show();
-
-
             }
         }
     }
-
     /*
     * Writes an NdefMessage to a nfc tag
     */

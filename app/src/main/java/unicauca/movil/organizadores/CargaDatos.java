@@ -71,7 +71,7 @@ public class CargaDatos extends AppCompatActivity implements DialogInterface.OnC
                             String idp = readText(parser);
                             b.setId(Integer.parseInt(idp));
                             break;
-                        case "nombre":
+                        case "anombre":
                             parser.require(XmlPullParser.START_TAG, null, condi);
                             String nombre = readText(parser);
                             b.setNombre(nombre);
@@ -86,7 +86,7 @@ public class CargaDatos extends AppCompatActivity implements DialogInterface.OnC
                             String ide = readText(parser);
                             e.setIde(Integer.parseInt(ide));
                             break;
-                        case "url":
+                        case "urlevento":
                             parser.require(XmlPullParser.START_TAG, null, condi);
                             String url = readText(parser);
                             e.setUrl(url);

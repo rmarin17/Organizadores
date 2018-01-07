@@ -143,9 +143,6 @@ public class Write extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         // Tag writing mode
-
-
-
         if (mWriteMode && NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
@@ -154,9 +151,8 @@ public class Write extends AppCompatActivity {
                     +"\nEMAIL:"+ binding.correo.getEditText().getText().toString());
             NdefMessage message = new NdefMessage(new NdefRecord[] { record });
             if (writeTag(message, detectedTag)) {
-                Toast.makeText(this, "Completado: La etiqueta fue escrita correctamente", Toast.LENGTH_LONG)
+                Toast.makeText(this, R.string.action_complete, Toast.LENGTH_LONG)
                         .show();
-
                 binding.nombre.getEditText().setText("");
                 binding.telefono.getEditText().setText("");
                 binding.correo.getEditText().setText("");
