@@ -79,7 +79,6 @@ public class CargaDatos extends AppCompatActivity implements DialogInterface.OnC
                             break;
                         //endregion
 
-
                         //region Evento
                         case "ide":
                             parser.require(XmlPullParser.START_TAG, null, condi);
@@ -98,7 +97,6 @@ public class CargaDatos extends AppCompatActivity implements DialogInterface.OnC
                             edao.insert(e);
                             break;
                         //endregion
-
 
                     }
                 }
