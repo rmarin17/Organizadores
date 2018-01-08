@@ -31,7 +31,6 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
     EventoDao edao;
 
     String actividad;
-    String actividad_replace;
 
     List<UserRequest> data;
 
@@ -45,7 +44,6 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         int pos = getIntent().getExtras().getInt("pos");
         Boton boton = L.bdata.get(pos);
         actividad = boton.getNombre();
-        actividad_replace = actividad.replace(" ", "_");
         binding.setActi(boton);
         adapter = new UserAdapterPro(getLayoutInflater(), L.data, this);
         binding.recycler.setAdapter(adapter);
@@ -55,7 +53,7 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
     public void loadData() {
         L.data.clear();
-        List<UserRequest> list = dao.getByActivity(actividad_replace);
+        List<UserRequest> list = dao.getByActivity(actividad);
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
                 L.data.add(u);
@@ -69,10 +67,10 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
     @Override
     protected void onNFCData(UserRequest request) {
-        request.setActividad(actividad_replace);
+        request.setActividad(actividad);
         Long codigo = request.getIdl();
         int alarma = 0;
-        List<UserRequest> list = dao.getByActivity(actividad_replace);
+        List<UserRequest> list = dao.getByActivity(actividad);
         List<Evento> elist = edao.getAll();
         Long ide = elist.get(0).getIde();
         request.setIde(ide);
