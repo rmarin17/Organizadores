@@ -80,7 +80,6 @@ public class UserDao {
     }
 
     public List<UserRequest> getByActivity (String actividad){
-
         //Cursor c = db.rawQuery("SELECT * FROM alarma WHERE fecha LIKE '%"+fecha_sistema+"%'",null);   ",null);//
         Cursor c = db.rawQuery("SELECT * FROM registro WHERE actividad='"+actividad+"'", null);
         return cursorToList(c);
