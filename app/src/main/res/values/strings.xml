@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EventMP organizers</string>
+    <string name="app_name">EventMPro organizers</string>
     <string name="http_error_404">REcurso no encontrado</string>
     <string name="http_error_server">Error en servidor</string>
     <string name="http_error_internet">Sin conexion a internet</string>

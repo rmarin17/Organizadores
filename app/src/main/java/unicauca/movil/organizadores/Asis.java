@@ -41,7 +41,6 @@ public class Asis extends AppCompatActivity implements UserAdapterPro.OnUserList
         int pos = getIntent().getExtras().getInt("pos");
         Boton boton = L.bdata.get(pos);
         actividad = boton.getNombre();
-        actividad_replace = actividad.replace(" ", "_");
 
         binding.setActi(boton);
 
@@ -53,7 +52,7 @@ public class Asis extends AppCompatActivity implements UserAdapterPro.OnUserList
     }
 
     public void loadData() {
-        List<UserRequest> list = dao.getByActivity(actividad_replace);
+        List<UserRequest> list = dao.getByActivity(actividad);
         binding.canti.setText(""+list.size());
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
