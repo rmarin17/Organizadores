@@ -71,7 +71,7 @@ public abstract class NFCActivity extends AppCompatActivity {
                 String nombre = data[1].split(":")[1];
                 String tel = data[2].split(":")[1];
                 String email = data[3].split(":")[1];
-                long idL = getDec(id);
+                String idL = String.valueOf(getDec(id));
                 UserRequest request = new UserRequest();
                 request.setNombre(nombre);
                 request.setEmail(email);

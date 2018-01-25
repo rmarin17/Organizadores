@@ -8,8 +8,8 @@ public class UserRequest {
     public static final int TYPE_ASIST = 0;
     public static final int TYPE_REF = 1;
 
-    String nombre, tel, email, actividad;
-    long id, idl, ide;
+    String nombre, tel, email, actividad, idl;
+    long id, ide;
     int type;
 
     public long getIde() {
@@ -68,11 +68,11 @@ public class UserRequest {
         this.type = type;
     }
 
-    public long getIdl() {
+    public String getIdl() {
         return idl;
     }
 
-    public void setIdl(long idl) {
+    public void setIdl(String idl) {
         this.idl = idl;
     }
 

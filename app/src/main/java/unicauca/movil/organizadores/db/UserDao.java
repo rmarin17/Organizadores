@@ -96,7 +96,7 @@ public class UserDao {
             user.setTel(c.getString(2));
             user.setEmail(c.getString(3));
             user.setType(c.getInt(4));
-            user.setIdl(c.getLong(5));
+            user.setIdl(c.getString(5));
             user.setIde(c.getLong(6));
             user.setActividad(c.getString(7));
         }
