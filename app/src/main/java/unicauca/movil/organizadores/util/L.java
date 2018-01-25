@@ -10,8 +10,10 @@ import unicauca.movil.organizadores.models.UserRequest;
  */
 
 public class L {
-
+    public static String urlAll;
+    public static long ideAll;
     public static List<UserRequest> data;
+    public static List<UserRequest> udata;
     public static List<Boton> bdata;
 
 }

@@ -8,8 +8,9 @@ import android.os.AsyncTask;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 
-import unicauca.movil.organizadores.models.UserRequest;
-
+/**
+ * Created by RicardoM on 18/10/2016.
+ */
 
 public class HttpAsyncTask extends AsyncTask<String, Void, Response> {
 
@@ -41,6 +42,7 @@ public class HttpAsyncTask extends AsyncTask<String, Void, Response> {
         HttpConnection con =  new HttpConnection();
 
         Response response = null;
+
         if(isConnected()){
             try {
                 switch (method) {
@@ -77,11 +79,20 @@ public class HttpAsyncTask extends AsyncTask<String, Void, Response> {
     }
 
     private boolean isConnected(){
+        boolean bConectado = false;
         ConnectivityManager cm =
                 (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork.isConnectedOrConnecting();
+        NetworkInfo[] redes = cm.getAllNetworkInfo();
+        // este bucle debería no ser tan ñapa
+        for (int i = 0; i < 2; i++) {
+            // ¿Tenemos conexión? ponemos a true
+            if (redes[i].getState() == NetworkInfo.State.CONNECTED) {
+                bConectado = true;
+            }
+        }
+        //NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        //return activeNetwork.isConnectedOrConnecting();
+        return bConectado;
     }
 
 }

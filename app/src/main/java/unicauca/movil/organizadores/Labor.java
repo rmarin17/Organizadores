@@ -21,14 +21,18 @@ import unicauca.movil.organizadores.models.Evento;
 import unicauca.movil.organizadores.models.UserRequest;
 import unicauca.movil.organizadores.net.HttpAsyncTask;
 import unicauca.movil.organizadores.net.Response;
+import unicauca.movil.organizadores.net.api.UsersApi;
 import unicauca.movil.organizadores.util.L;
 
-public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListener, UserAdapterPro.OnUserListener, DialogInterface.OnClickListener {
+public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListener, UserAdapterPro.OnUserListener,
+        DialogInterface.OnClickListener, UsersApi.OnRegListener {
 
     ActivityLaborBinding binding;
 
     UserAdapterPro adapter;
     EventoDao edao;
+    UsersApi api;
+    UserDao udao;
 
     String actividad;
 
@@ -39,24 +43,27 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_labor);
         data = new ArrayList<UserRequest>();
-        L.data = new ArrayList<>();
+        L.udata = new ArrayList<>();
         edao = new EventoDao(this);
+        udao = new UserDao(this);
+        api = new UsersApi(this);
         int pos = getIntent().getExtras().getInt("pos");
         Boton boton = L.bdata.get(pos);
         actividad = boton.getNombre();
         binding.setActi(boton);
-        adapter = new UserAdapterPro(getLayoutInflater(), L.data, this);
+        adapter = new UserAdapterPro(getLayoutInflater(), L.udata, this);
         binding.recycler.setAdapter(adapter);
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
         loadData();
     }
 
     public void loadData() {
-        L.data.clear();
-        List<UserRequest> list = dao.getByActivity(actividad);
+        L.udata.clear();
+        List<UserRequest> list = udao.getByActivity(actividad);
+        //api.getUsuarios(this);
         if(list.size() > 0 ) {
             for (UserRequest u : list) {
-                L.data.add(u);
+                L.udata.add(u);
             }
             adapter.notifyDataSetChanged();
         }
@@ -68,15 +75,15 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
     @Override
     protected void onNFCData(UserRequest request) {
         request.setActividad(actividad);
-        Long codigo = request.getIdl();
+        long codigo = request.getIdl();
         int alarma = 0;
-        List<UserRequest> list = dao.getByActivity(actividad);
+        List<UserRequest> list = udao.getByActivity(actividad);
         List<Evento> elist = edao.getAll();
         Long ide = elist.get(0).getIde();
         request.setIde(ide);
         if(list.size() > 0) {
             for (UserRequest u : list) {
-                data.add(u);
+                //data.add(u);
                 if (codigo == u.getIdl()){
                     generateAlert();
                     alarma = 1;
@@ -84,13 +91,14 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
             }
         }
         if (alarma == 0){
-            dao.insert(request);
-            String url = elist.get(0).getUrl();
+            udao.insert(request);
+            /*String url = elist.get(0).getUrl();
             String json = gson.toJson(request);
             //String url = "http://192.168.0.107:8080/asistencia/public/index.php/ref";
             UserRequest request1 = gson.fromJson(json, UserRequest.class);
             HttpAsyncTask task = new HttpAsyncTask(this, 101, HttpAsyncTask.METHOD_POST, this);
-            task.execute(url, json);
+            task.execute(url, json);*/
+            api.registrar(request,this);
             Toast.makeText(this, R.string.correcto, Toast.LENGTH_SHORT).show();
             loadData();
         }
@@ -122,5 +130,10 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
 
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
+    }
+
+    @Override
+    public void onReg(boolean success, UserRequest usr) {
+
     }
 }

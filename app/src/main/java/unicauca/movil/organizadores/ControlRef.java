@@ -14,16 +14,21 @@ import java.util.List;
 import unicauca.movil.organizadores.adapters.ButtonAdapter;
 import unicauca.movil.organizadores.databinding.ActivityControlRefBinding;
 import unicauca.movil.organizadores.db.BotonDao;
+import unicauca.movil.organizadores.db.UserDao;
 import unicauca.movil.organizadores.models.Boton;
+import unicauca.movil.organizadores.models.UserRequest;
+import unicauca.movil.organizadores.net.api.UsersApi;
 import unicauca.movil.organizadores.util.L;
 
-public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnButtonListener {
+public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnButtonListener, UsersApi.OnActivListener, UsersApi.OnUsuariosListener {
 
     ActivityControlRefBinding binding;
 
     ButtonAdapter adapter;
-
-    BotonDao dao;
+    UsersApi api;
+    UserDao udao;
+    BotonDao bdao;
+    long tamañob=0,tamañou=0;
 
 
     @Override
@@ -31,22 +36,28 @@ public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnBut
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_control_ref);
         binding.setHandler(this);
-
-        dao = new BotonDao(this);
+        udao = new UserDao(this);
+        bdao = new BotonDao(this);
+        api = new UsersApi(this);
+        List<Boton> bList = bdao.getAll();
+        tamañob = bList.size();
+        List<UserRequest> ulist = udao.getAll();
+        tamañou = ulist.size();
         L.bdata = new ArrayList<>();
         adapter = new ButtonAdapter(getLayoutInflater(), L.bdata,this);
         binding.recycler.setAdapter(adapter);
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
-
         loadData();
-
     }
 
 
     public void loadData() {
 
-        List<Boton> list = dao.getAll();
+        api.getActividades(this);
+        api.getUsuarios(this);
 
+        List<Boton> list = bdao.getAll();
+        L.bdata.clear();
         if(list.size() > 0 ) {
             for (Boton b : list) {
                 L.bdata.add(b);
@@ -56,47 +67,7 @@ public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnBut
         else {
             Toast.makeText(this, R.string.empy, Toast.LENGTH_LONG).show();
         }
-
-
-
     }
-
-    //region Bad Buttons
-    /*public void goAsis(){
-        Intent intent = new Intent(this, Labor.class);
-        startActivity(intent);
-    }
-
-    public void goRef1(){
-        Intent intent = new Intent(this, RefrigerioActivity.class);
-        startActivity(intent);
-    }
-
-    public void goRef2(){
-        Intent intent = new Intent(this, Refrigerio2.class);
-        startActivity(intent);
-    }
-
-    public void goRef3(){
-        Intent intent = new Intent(this, Refrigerio3.class);
-        startActivity(intent);
-    }
-
-    public void goRef4(){
-        Intent intent = new Intent(this, Refrigerio4.class);
-        startActivity(intent);
-    }
-
-    public void goRef5(){
-        Intent intent = new Intent(this, Refrigerio5.class);
-        startActivity(intent);
-    }
-
-    public void goAlmu(){
-        Intent intent = new Intent(this, Almuerzo.class);
-        startActivity(intent);
-    }*/
-    //endregion
 
     @Override
     public void onButton(int position) {
@@ -105,5 +76,37 @@ public class ControlRef extends AppCompatActivity implements ButtonAdapter.OnBut
         intent.putExtra("pos", position);
         startActivity(intent);
 
+    }
+
+    @Override
+    public void onActiv(List<Boton> botones) {
+        L.bdata.clear();
+        if (tamañob!= botones.size()) {
+            bdao.deleteAll();
+            for(Boton b: botones){
+                bdao.insert(b);
+                L.bdata.add(b);
+            }
+        } else {
+            for(Boton b: botones){
+                bdao.update(b);
+                L.bdata.add(b);
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onUsuarios(List<UserRequest> usuarios) {
+        if (tamañou!= usuarios.size()) {
+            udao.deleteAll();
+            for(UserRequest u: usuarios){
+                udao.insert(u);
+            }
+        } else {
+            for(UserRequest u: usuarios){
+                udao.update(u);
+            }
+        }
     }
 }

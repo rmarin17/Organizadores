@@ -16,11 +16,14 @@ import unicauca.movil.organizadores.db.BotonDao;
 import unicauca.movil.organizadores.db.EventoDao;
 import unicauca.movil.organizadores.db.UserDao;
 import unicauca.movil.organizadores.models.Boton;
+import unicauca.movil.organizadores.models.Evento;
+import unicauca.movil.organizadores.models.UserRequest;
+import unicauca.movil.organizadores.net.api.UsersApi;
+import unicauca.movil.organizadores.util.L;
 
 public class PrincipalPro extends AppCompatActivity implements DialogInterface.OnClickListener {
 
     ActivityPrincipalProBinding binding;
-
     BotonDao bdao;
     UserDao udao;
     EventoDao edao;
@@ -34,6 +37,12 @@ public class PrincipalPro extends AppCompatActivity implements DialogInterface.O
         bdao = new BotonDao(this);
         udao = new UserDao(this);
         edao = new EventoDao(this);
+
+
+        List<Evento> elist = edao.getAll();
+        L.urlAll = elist.get(0).getUrl();
+        L.ideAll = elist.get(0).getIde();
+
     }
 
 

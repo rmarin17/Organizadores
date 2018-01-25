@@ -23,7 +23,6 @@ public class Principal extends AppCompatActivity {
     EventoDao edao;
     //int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 10001;
     private static final int READ_REQUEST_CODE = 42;
-    String archivo;
     //private List<String> fileList = new ArrayList<String>();
 
     @Override

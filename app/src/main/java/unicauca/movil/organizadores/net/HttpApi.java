@@ -5,7 +5,12 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.util.List;
+
 import unicauca.movil.organizadores.R;
+import unicauca.movil.organizadores.db.EventoDao;
+import unicauca.movil.organizadores.models.Evento;
+import unicauca.movil.organizadores.util.L;
 
 /**
  * Created by RicardoM on 18/10/2016.
@@ -19,7 +24,7 @@ public abstract class HttpApi implements HttpAsyncTask.OnResponseListener {
 
     public HttpApi(Context context) {
         this.context = context;
-        urlBase = context.getString(R.string.url_base);
+        urlBase = L.urlAll;
         gson = new Gson();
     }
 

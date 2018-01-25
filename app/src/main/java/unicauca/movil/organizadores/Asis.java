@@ -26,14 +26,11 @@ public class Asis extends AppCompatActivity implements UserAdapterPro.OnUserList
     UserDao dao;
 
     String actividad;
-    String actividad_replace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_asis);
-
-
 
         L.data = new ArrayList<>();
         dao = new UserDao(this);
