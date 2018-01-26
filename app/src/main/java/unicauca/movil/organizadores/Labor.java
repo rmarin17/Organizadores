@@ -92,12 +92,6 @@ public class Labor extends NFCActivity implements HttpAsyncTask.OnResponseListen
         }
         if (alarma == 0){
             udao.insert(request);
-            /*String url = elist.get(0).getUrl();
-            String json = gson.toJson(request);
-            //String url = "http://192.168.0.107:8080/asistencia/public/index.php/ref";
-            UserRequest request1 = gson.fromJson(json, UserRequest.class);
-            HttpAsyncTask task = new HttpAsyncTask(this, 101, HttpAsyncTask.METHOD_POST, this);
-            task.execute(url, json);*/
             api.registrar(request,this);
             Toast.makeText(this, R.string.correcto, Toast.LENGTH_SHORT).show();
             loadData();
